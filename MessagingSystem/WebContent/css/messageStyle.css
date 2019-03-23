@@ -1,0 +1,154 @@
+@charset "ISO-8859-1";
+
+.mainPage {
+	background-image: url("./../images/html-color-codes-color-tutorials-903ea3cb.jpg");
+}
+
+.insert {
+	background-image: url("./../images/green-abstract-background-1024x716.jpg");
+}
+
+.addUser {
+	background-color: black;
+}
+
+body.login {
+	background-color: black;
+}
+
+#success {
+	color: white;
+}
+
+a#linkBack {
+	color: #ff531a;
+}
+
+h2#error {
+	color: red;
+}
+
+td#add {
+	color: white;
+}
+
+h1#welcome {
+	color: #33cc33;
+	text-align: center;
+	font-family: cursive;
+	font-size: xx-large;
+}
+
+h2#place {
+	color: red;
+	font-family: sans-serif;
+}
+
+h2#options {
+	color: #2835d5;
+	font-family: verdana;
+}
+
+h3 {
+	color: green;
+	font-family: georgia;
+}
+
+table {
+	width: 360px; border : medium;
+	border-color: navy;
+	border-style: outset;
+	border: medium;
+}
+
+td {
+	border: thin;
+	border-color: navy;
+	border-style: outset;
+	font-family: georgia;
+}
+
+.inputFields {
+	width: 180px;
+	font-family: georgia;
+	padding-right: 10px;
+	padding-left: 1px;
+}
+
+.login {
+	width: 190px;
+	font-family: georgia;
+	padding-right: 40px;
+	padding-left: 1px;
+}
+
+.button {
+	font-family: georgia;
+	font-weight: bold;
+	color: navy;
+	background-color: aqua;
+	padding: 0.5em 3em;
+	border: 0.16em dashed black;
+	margin: 0 0.3em 0.3em 0;
+}
+
+.error {
+	color: red;
+}
+
+.valid {
+	color: green;
+}
+
+.message {
+	font-family: georgia;
+	font-size: 20px;
+	color: #e9ec5e;
+}
+.posts {
+	width: 800px;
+	border-color: navy;
+	border-style: outset;
+	border: medium;
+}
+
+.whoLikedIt {
+	font-family: times new roman;
+	font-size: small;
+}
+td#time {
+	width: 210px;
+	color: #e9ec5e;
+}
+td#message {
+	width: 500px;
+	color:  #e9ec5e;
+}
+td#username {
+	width: 200px;
+	color: #e9ec5e;
+}
+td#like {
+	color: #e9ec5e;
+}
+p#mostTrending {
+	font-weight: bold;
+	font-size: x-large;
+	color: #e9ec5e;
+}
+th.header {
+	color: #e9ec5e;
+}
+a#link {
+	color: #e9ec5e;
+}
+h4#username {
+	color: #ff531a;
+}
+p#usernameForPost {
+	color: #e9ec5e;
+}
+
+a#likeLink {
+	color: red;
+}
