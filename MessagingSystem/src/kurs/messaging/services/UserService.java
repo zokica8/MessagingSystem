@@ -23,7 +23,7 @@ public class UserService extends Service {
 	// insert user
 	public User insertUser(User user) throws SQLException {
 
-		String sql = "insert into user (username, password) values (?, ?)";
+		String sql = "insert into user (username, password) values (?, sha2(?, 512))";
 		try (PreparedStatement pstmt = connect.returnConnection().prepareStatement(sql,
 				Statement.RETURN_GENERATED_KEYS)) {
 			pstmt.setString(1, user.getUsername());

@@ -1,13 +1,17 @@
 package kurs.messaging.beans;
 
+import java.io.Serializable;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class User {
+public class User implements Serializable {
 	
+	private static final long serialVersionUID = -1428603333663146697L;
+
 	private int user_id;
 	
 //	@NotNull(message = "USERNAME can't be NULL!!!")

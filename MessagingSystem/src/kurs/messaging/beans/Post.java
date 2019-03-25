@@ -25,14 +25,16 @@ public class Post {
 	}
 	
 	public boolean validate() {
-		if(content.isBlank()) {
-			message = "Content can't be blank!!";
-			return false;
-		}
 		if(content == null) {
 			message = "Content can't be NULL!!";
 			return false;
 		}
+		
+		if(content.isBlank()) {
+			message = "Content can't be blank!!";
+			return false;
+		}
+		
 		return true;
 	}
 }

@@ -12,10 +12,10 @@ public class UserCreatedCommand extends Command {
 		super(jsp);
 	}
 	
-	
 	@Override
 	public String execute() throws Exception {
 		String password = request.getParameter("password");
+		
 		service = new UserService();
 		service.returnConnection();
 		User user = new User();
@@ -31,5 +31,5 @@ public class UserCreatedCommand extends Command {
 			request.setAttribute("errorMessage", user.getMessage());
 			return JspUtil.ADD_USER_JSP;
 		}	
-	}
+	}	
 }
