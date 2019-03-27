@@ -16,5 +16,6 @@ public class PostsSent {
 	private String content;
 	private int likesCount;
 	private LocalDateTime timeOfMessage;
+	private String imageId;
 
 }

@@ -17,6 +17,8 @@ public class CommandsUtil {
 	public static final String LOGOUT = "logout";
 	public static final String POST_INSERTED = "postInserted";
 	public static final String LIKE = "like";
+	public static final String UPLOAD_PIC = "uploadPicture";
+	public static final String PIC_UPLOADED = "pictureUploaded";
 	
 	private CommandsUtil() {
 		

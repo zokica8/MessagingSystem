@@ -17,9 +17,13 @@
 	User user = (User) request.getAttribute("userMessages");
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 	LikesService service = new LikesService();
-	service.returnConnection();%>
+	service.returnConnection();
+	User userImage = (User) request.getAttribute("user");
+	%>
+	
 <table class="posts">
 	<tr>
+		<th class="header"></th>
 		<th class="header">User Name: </th>
 		<th class="header">Message: </th>
 		<th class="header">Time Of Message: </th>
@@ -27,6 +31,11 @@
 	<% for(PostsSent post: posts) { %>
 	
 	<tr>
+		<% if(post.getImageId() != null)  {%>
+		<td><img class="image" alt="image" src="${pageContext.request.contextPath}/userImages/<%= post.getImageId() %>"></td>
+		<% } else { %>
+		<td><input type="hidden"></td>
+		<% } %>
 		<td id="username">
 		<a id="linkBack" href="MessagingController?page=listOfPosts&id=<%= post.getUsername() %>"><%= post.getUsername() %></a>
 		</td>

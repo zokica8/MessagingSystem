@@ -20,6 +20,47 @@ public class Service {
 	public ConnectionInterface returnConnection() {
 		return ConnectionFactory.returnConnection(StringUtil.DATABASE);
 	}
+	
+	public User checkIfImageExistsUpdate(String username, String imageUUID) throws SQLException {
+		User user = new User();
+		String sql = "select user_ID, username, imageId from user "
+				+ "where username = ? AND (imageId is null OR imageId = ?)";
+		
+		try(PreparedStatement pstmt = connect.returnConnection().prepareStatement(sql)) {
+			pstmt.setString(1, username);
+			pstmt.setString(2, imageUUID);
+			pstmt.execute();
+			
+			try(ResultSet rs = pstmt.getResultSet()) {
+				while(rs.next()) {
+					user.setUser_id(rs.getInt(1));
+					user.setUsername(rs.getString(2));
+					user.setImageId(rs.getString(3));
+				}
+			}
+		}	
+		return user;
+	}
+	
+	public User checkIfImageExistsDelete(String username) throws SQLException {
+		User user = new User();
+		String sql = "select user_ID, username, imageId from user "
+				+ "where username = ? AND imageId is not null";
+		
+		try(PreparedStatement pstmt = connect.returnConnection().prepareStatement(sql)) {
+			pstmt.setString(1, username);
+			pstmt.execute();
+			
+			try(ResultSet rs = pstmt.getResultSet()) {
+				while(rs.next()) {
+					user.setUser_id(rs.getInt(1));
+					user.setUsername(rs.getString(2));
+					user.setImageId(rs.getString(3));
+				}
+			}
+		}	
+		return user;
+	}
 
 	public User checkIfPasswordForUserExists(String password) throws SQLException {
 		User user = new User();

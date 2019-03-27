@@ -88,7 +88,7 @@ public class UserService extends Service {
 	// login functionality FINALLY COMPLETED!!!
 	public User loginUser(String username) throws SQLException {
 		User user = new User();
-		String sql = "select user_ID, username, password from user where "
+		String sql = "select user_ID, username, password, imageId from user where "
 				+ "binary username = ?";
 
 		try (PreparedStatement pstmt = connect.returnConnection().prepareStatement(sql)) {
@@ -100,11 +100,28 @@ public class UserService extends Service {
 					user.setUser_id(rs.getInt(1));
 					user.setUsername(rs.getString(2));
 					user.setPassword(rs.getString(3));
+					user.setImageId(rs.getString(4));
 				}
 				log.info("The user is in the database!!");
 			}
 		} catch(SQLException e) {
 			log.error("Error in the database!!");
+			log.error(e.getMessage());
+		}
+		return user;
+	}
+	
+	public User updateImageForUser(User user, String imageUUID) throws SQLException {
+		String sql = "update user set imageId = ? where username = ?";
+		
+		try(PreparedStatement pstmt = connect.returnConnection().prepareStatement(sql)) {
+			pstmt.setString(1, imageUUID);
+			pstmt.setString(2, user.getUsername());
+			
+			int update = pstmt.executeUpdate();
+			log.info("Record updated! " + update + "\n");	
+		} catch (SQLException e) {
+			log.error("Record update not successful!");
 			log.error(e.getMessage());
 		}
 		return user;

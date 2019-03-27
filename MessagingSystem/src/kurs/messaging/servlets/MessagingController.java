@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,9 @@ import lombok.extern.slf4j.Slf4j;
 // main central servlet of the application which 
 // forwards requests to commands and jsp page
 @Slf4j
+@MultipartConfig(fileSizeThreshold = 1024 * 1024, 
+maxFileSize = 1024 * 1024 * 5,
+maxRequestSize = 1024 * 1024 * 5 * 5)
 @WebServlet("/MessagingController")
 public class MessagingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -48,6 +52,8 @@ public class MessagingController extends HttpServlet {
 		commands.put(CommandsUtil.LOGOUT, JspFactory.getCommands(CommandsUtil.LOGOUT));	
 		commands.put(CommandsUtil.POST_INSERTED, JspFactory.getCommands(CommandsUtil.POST_INSERTED));
 		commands.put(CommandsUtil.LIKE, JspFactory.getCommands(CommandsUtil.LIKE));
+		commands.put(CommandsUtil.UPLOAD_PIC, JspFactory.getCommands(CommandsUtil.UPLOAD_PIC));
+		commands.put(CommandsUtil.PIC_UPLOADED, JspFactory.getCommands(CommandsUtil.PIC_UPLOADED));
 	}
 
 	/**

@@ -152,3 +152,7 @@ p#usernameForPost {
 a#likeLink {
 	color: red;
 }
+
+.image {
+	width: 100px;
+}

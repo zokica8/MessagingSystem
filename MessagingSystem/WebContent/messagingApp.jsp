@@ -30,6 +30,7 @@ href="${pageContext.request.contextPath}/css/messageStyle.css"/>
 	<p id="mostTrending"> Most trending messages: </p>
 <table class="posts">
 	<tr>
+		<th class="header"></th>
 		<th class="header">User Name: </th>
 		<th class="header">Message: </th>
 		<th class="header">Time Of Message: </th>
@@ -37,6 +38,11 @@ href="${pageContext.request.contextPath}/css/messageStyle.css"/>
 	</tr>
 	<tr>
 		<% for(PostsSent message : trending) { %>
+		<% if(message.getImageId() != null)  {%>
+		<td id="image"><img alt="image" src="${pageContext.request.contextPath}/userImages/<%= message.getImageId() %>"></td>
+		<% } else { %>
+		<td><input type="hidden"></td>
+		<% } %>
 		<td id="username"><%= message.getUsername() %></td>
 		<td id="message"><%= message.getContent() %></td>
 		<td id="time"><%= message.getTimeOfMessage().format(formatter) %></td>

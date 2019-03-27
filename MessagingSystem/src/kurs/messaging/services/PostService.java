@@ -52,7 +52,7 @@ public class PostService extends Service {
 	public List<PostsSent> getPosts() throws SQLException {
 		List<PostsSent> postsSent = new ArrayList<>();
 
-		String sql = "select u.username, p.post_ID, p.content, p.timeOfMessage, count(l.post_ID) "
+		String sql = "select u.username, p.post_ID, p.content, p.timeOfMessage, count(l.post_ID), u.imageId "
 				+ "from post p "
 				+ "left join likes l on l.post_ID = p.post_ID "
 				+ "join user u on p.user_ID = u.user_ID "
@@ -68,6 +68,7 @@ public class PostService extends Service {
 					sent.setContent(rs.getString(3));
 					sent.setTimeOfMessage(rs.getTimestamp(4).toLocalDateTime());
 					sent.setLikesCount(rs.getInt(5));
+					sent.setImageId(rs.getString(6));
 					postsSent.add(sent);
 				}
 			}
@@ -79,7 +80,7 @@ public class PostService extends Service {
 	public List<PostsSent> getPosts(int id) throws SQLException {
 		List<PostsSent> postsSent = new ArrayList<>();
 
-		String sql = "select u.username, p.post_ID, p.content, p.timeOfMessage, count(l.post_ID) "
+		String sql = "select u.username, p.post_ID, p.content, p.timeOfMessage, count(l.post_ID), u.imageId "
 				+ "from post p "
 				+ "left join likes l on l.post_ID = p.post_ID "
 				+ "join user u on p.user_ID = u.user_ID "
@@ -97,6 +98,7 @@ public class PostService extends Service {
 					sent.setContent(rs.getString(3));
 					sent.setTimeOfMessage(rs.getTimestamp(4).toLocalDateTime());
 					sent.setLikesCount(rs.getInt(5));
+					sent.setImageId(rs.getString(6));
 					postsSent.add(sent);
 				}
 			}

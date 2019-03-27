@@ -47,6 +47,12 @@ public class JspFactory {
 		if(command.equalsIgnoreCase(CommandsUtil.LIKE)) {
 			return new LikeCommand(JspUtil.LIKE_JSP);
 		}
+		if(command.equalsIgnoreCase(CommandsUtil.UPLOAD_PIC)) {
+			return new UploadPictureCommand(JspUtil.UPLOAD_PIC_JSP);
+		}
+		if(command.equalsIgnoreCase(CommandsUtil.PIC_UPLOADED)) {
+			return new PictureUploadedCommand(JspUtil.PIC_UPLOADED_JSP);
+		}
 		return null;
 	}
 

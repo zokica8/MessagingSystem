@@ -17,6 +17,8 @@ public class JspUtil {
 	public static final String LOGOUT_JSP = "logout.jsp";
 	public static final String POST_INSERTED_JSP = "postInserted.jsp";
 	public static final String LIKE_JSP = "like.jsp";
+	public static final String UPLOAD_PIC_JSP = "uploadPicture.jsp";
+	public static final String PIC_UPLOADED_JSP = "pictureUploaded.jsp";
 	
 	private JspUtil() {
 		

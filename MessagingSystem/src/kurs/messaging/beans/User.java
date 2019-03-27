@@ -25,6 +25,8 @@ public class User implements Serializable {
 //	@Size(min = 10, message = "PASSWORD MUST have at LEAST 10 characters!!!")
 	private String password;
 	
+	private String imageId;
+	
 	@Getter
 	private String message;
 	

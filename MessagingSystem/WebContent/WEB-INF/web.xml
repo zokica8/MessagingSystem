@@ -15,6 +15,10 @@
   <param-name>dbUser</param-name>
   <param-value>zoran</param-value>
  </context-param>
+ <context-param>
+ 	<param-name>moveDir</param-name>
+ 	<param-value>C:\\Users\\zokiv\\git\\repository\\MessagingSystem\\MessagingSystem\\WebContent\\userImages</param-value>
+ </context-param>
  <servlet>
  	<servlet-name>AccessViewStatusMessages</servlet-name>
  	<servlet-class>ch.qos.logback.access.ViewStatusMessagesServlet</servlet-class>

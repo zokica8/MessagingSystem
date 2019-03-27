@@ -27,6 +27,9 @@
 	<input class="button" type="submit" value="Submit">
 </form>
 <br>
+<br>
+<h3>Upload Picture</h3>
+<a id="link" href="MessagingController?page=uploadPicture">Upload Picture</a>
 <h2 id="error"><%= request.getAttribute("notEqualPasswords") %></h2>
 <h2 id="error"><%= request.getAttribute("lengthPassword") %></h2>
 <br>

@@ -1,5 +1,7 @@
 package kurs.messaging.util;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -35,6 +37,9 @@ public class CSVFileReader {
 		reader.readingFromCSVFile(StringUtil.USER_CSV, "User", "username, password");
 		reader.readingFromCSVFile(StringUtil.POST_CSV, "Post", "content, timeOfMessage, user_ID");
 		reader.readingFromCSVFile(StringUtil.LIKE_CSV, "Likes", "user_id, post_id, timeOfLike");
+		
+		Path workingDirectory=Paths.get("").toAbsolutePath();
+		System.out.println(workingDirectory);
 	}
 
 }
