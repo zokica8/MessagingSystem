@@ -14,15 +14,8 @@ public class User implements Serializable {
 
 	private int user_id;
 	
-//	@NotNull(message = "USERNAME can't be NULL!!!")
-//	@NotBlank(message = "USERNAME can't be BLANK!!!")
-//	//@ValidEmail(min = 12, message = "EMAIL not VALID!!!")
-//	@Email(message = "EMAIL not VALID!!!")
 	private String username;
 	
-//	@NotNull(message = "PASSWORD can't be NULL!!!")
-//	@NotBlank(message = "PASSWORD can't be BLANK!!!")
-//	@Size(min = 10, message = "PASSWORD MUST have at LEAST 10 characters!!!")
 	private String password;
 	
 	private String imageId;

@@ -28,7 +28,6 @@
 		<th class="header">Message: </th>
 		<th class="header">Time Of Message: </th>
 		<th class="header">Insert Comment: </th>
-		<th class="header">Delete Comment: </th>
 	</tr>
 	<% for(PostsSent post: posts) { %>
 	
@@ -65,16 +64,19 @@
 			<%= c.getContent() + "<br>" %> 
 		</span>
 		<% } %>
+		<p> Comments Count: </p>
+		<% List<Comments> commentsCount = commentsService.countComments(post.getPost_ID());
+			for(Comments count : commentsCount) {
+		%>
+		<span class="content">
+			<%= count.getCommentsNumber() + "<br>" %>
+		</span>
+		<% } %>
 		</td>
 		<td id="time"><%= post.getTimeOfMessage().format(formatter) %></td>
 		<td>
 		<a href="MessagingController?page=comment&postId=<%= post.getPost_ID() %>">
 		<input class="button2" type="submit" value="Insert Comment">
-		</a>
-		</td>
-		<td>
-		<a href="MessagingController?page=commentDeleted">
-		<input class="button2" type="submit" value="Delete Comment">
 		</a>
 		</td>
 		<% } %>

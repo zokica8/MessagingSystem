@@ -26,8 +26,6 @@ public class UserLoggedInCommand extends Command {
 		
 		User user = service.loginUser(username);
 		
-		// login functionality - how to implement that?
-		// WE HAVE FINALLY IMPLEMENTED LOGIN FUNCTIONALITY!!!
 		if(username.equals(user.getUsername()) && user.getPassword().equals(hash)) {
 			session = request.getSession();
 			session.setAttribute("user", user);

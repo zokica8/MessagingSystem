@@ -1,10 +1,6 @@
 package kurs.messaging.commands;
 
-import kurs.messaging.services.UserService;
-
 public class LoginCommand extends Command {
-	
-	private UserService service;
 
 	public LoginCommand(String jsp) {
 		super(jsp);
@@ -12,8 +8,7 @@ public class LoginCommand extends Command {
 
 	@Override
 	public String execute() throws Exception {
-		service = new UserService();
-		service.returnConnection();
+	
 		request.setAttribute("errorMessage", "");
 		return nextPage;
 	}

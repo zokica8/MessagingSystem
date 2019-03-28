@@ -4,15 +4,11 @@ import java.util.List;
 
 import kurs.messaging.beans.PostsSent;
 import kurs.messaging.beans.User;
-import kurs.messaging.services.CommentsService;
-import kurs.messaging.services.LikesService;
 import kurs.messaging.services.PostService;
 
 public class ListOfPostsCommand extends Command {
 	
 	private PostService service;
-	private LikesService likesService;
-	private CommentsService commentsService;
 
 	public ListOfPostsCommand(String jsp) {
 		super(jsp);
@@ -21,11 +17,8 @@ public class ListOfPostsCommand extends Command {
 	@Override
 	public String execute() throws Exception {
 		service = new PostService();
-		likesService = new LikesService();
-		commentsService = new CommentsService();
 		service.returnConnection();
-		likesService.returnConnection();
-		commentsService.returnConnection();
+
 		String username = request.getParameter("id");
 		User user = service.getUser(username);
 		if(username == null || username == "null") {

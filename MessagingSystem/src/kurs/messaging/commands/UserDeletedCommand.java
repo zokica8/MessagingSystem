@@ -19,7 +19,6 @@ public class UserDeletedCommand extends Command {
 	public String execute() throws Exception {
 		
 		service = new UserService();
-		//service.returnConnection();
 		User user = (User) request.getSession().getAttribute("user");
 		user = service.checkIfImageExistsDelete(user.getUsername());
 		if(user.getImageId() != null) {

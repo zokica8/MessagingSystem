@@ -1,5 +1,7 @@
 package kurs.messaging.commands;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import kurs.messaging.beans.User;
 import kurs.messaging.services.UserService;
 import kurs.messaging.util.JspUtil;
@@ -20,9 +22,10 @@ public class UserUpdatedCommand extends Command{
 		String newPassword = request.getParameter("newPassword");
 		service = new UserService();
 		service.returnConnection();
-		User user = service.checkIfPasswordForUserExists(oldPassword);
+		String hexedPassword = DigestUtils.sha512Hex(oldPassword);
+		User user = service.checkIfPasswordForUserExists(hexedPassword);
 		
-		if(oldPassword.equals(user.getPassword()) && newPassword.length() >= 10) {
+		if(hexedPassword.equals(user.getPassword()) && newPassword.length() >= 10) {
 			log.info("Passwords match!");
 			service.updateUser(user, newPassword);
 			return nextPage;

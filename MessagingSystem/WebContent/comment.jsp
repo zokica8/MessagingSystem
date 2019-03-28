@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="kurs.messaging.beans.*, java.util.*" %>
+<%@ page import="kurs.messaging.beans.*, java.util.*, kurs.messaging.services.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +11,12 @@
 </head>
 <body>
 <% User user = (User) session.getAttribute("user"); 
-   List<PostsSent> posts = (List<PostsSent>) request.getAttribute("posts");
+   Integer postID = (Integer) request.getAttribute("postID");
 %>
 <form action="MessagingController?page=commentInserted" method="post">
 	<p>Insert Your Comment: </p>
 	<input type="hidden" name="userID" value="<%= user.getUser_id() %>">
-	<% for(PostsSent p : posts)  {%>
-	<input type="hidden" name="postID" value="<%= p.getPost_ID() %>"> 
-	<% } %>
+	<input type="hidden" name="postID" value="<%= postID %>"> 
 	<textarea rows="10" cols="50" name="commentMessage"></textarea>
 	<br>
 	<br>
