@@ -92,6 +92,11 @@ td {
 	margin: 0 0.3em 0.3em 0;
 }
 
+.button2 {
+	font-family: georgia;
+	background-color: aqua;
+}
+
 .error {
 	color: red;
 }
@@ -155,4 +160,13 @@ a#likeLink {
 
 .image {
 	width: 100px;
+}
+
+#whoCommented {
+	font-family: Arial Black;
+	color: black;
+}
+
+.content {
+	color: black;
 }

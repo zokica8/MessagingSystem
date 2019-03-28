@@ -19,6 +19,8 @@ public class JspUtil {
 	public static final String LIKE_JSP = "like.jsp";
 	public static final String UPLOAD_PIC_JSP = "uploadPicture.jsp";
 	public static final String PIC_UPLOADED_JSP = "pictureUploaded.jsp";
+	public static final String COMMENT_JSP = "comment.jsp";
+	public static final String COMMENT_INSERTED_JSP = "commentInserted.jsp";
 	
 	private JspUtil() {
 		

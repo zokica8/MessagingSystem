@@ -14,11 +14,11 @@
 </head>
 <body class="mainPage">
 <% List<PostsSent> posts = (List<PostsSent>) request.getAttribute("posts");
-	User user = (User) request.getAttribute("userMessages");
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 	LikesService service = new LikesService();
+	CommentsService commentsService = new CommentsService();
 	service.returnConnection();
-	User userImage = (User) request.getAttribute("user");
+	commentsService.returnConnection();
 	%>
 	
 <table class="posts">
@@ -27,6 +27,8 @@
 		<th class="header">User Name: </th>
 		<th class="header">Message: </th>
 		<th class="header">Time Of Message: </th>
+		<th class="header">Insert Comment: </th>
+		<th class="header">Delete Comment: </th>
 	</tr>
 	<% for(PostsSent post: posts) { %>
 	
@@ -52,12 +54,31 @@
 		}
 		%>
 		</span>
-		</p>
+		<br>
+		<br>
+		<% } %>
+		<p> Comments: </p>
+		<% List<Comments> comments = commentsService.getCommentsPerPost(post.getPost_ID());  
+			for(Comments c : comments) {
+		%>
+		<span class="content">
+			<%= c.getContent() + "<br>" %> 
+		</span>
+		<% } %>
+		</td>
+		<td id="time"><%= post.getTimeOfMessage().format(formatter) %></td>
+		<td>
+		<a href="MessagingController?page=comment&postId=<%= post.getPost_ID() %>">
+		<input class="button2" type="submit" value="Insert Comment">
+		</a>
+		</td>
+		<td>
+		<a href="MessagingController?page=commentDeleted">
+		<input class="button2" type="submit" value="Delete Comment">
+		</a>
 		</td>
 		<% } %>
-		<td id="time"><%= post.getTimeOfMessage().format(formatter) %></td>
-	</tr>
-	<% } %>
+	</tr>	
 </table>
 <br>
 <p><a id="link" href="MessagingController">Back to Main Menu</a></p>

@@ -53,6 +53,12 @@ public class JspFactory {
 		if(command.equalsIgnoreCase(CommandsUtil.PIC_UPLOADED)) {
 			return new PictureUploadedCommand(JspUtil.PIC_UPLOADED_JSP);
 		}
+		if(command.equalsIgnoreCase(CommandsUtil.COMMENT)) {
+			return new CommentCommand(JspUtil.COMMENT_JSP);
+		}
+		if(command.equalsIgnoreCase(CommandsUtil.COMMENT_INSERTED)) {
+			return new CommentInsertedCommand(JspUtil.COMMENT_INSERTED_JSP);
+		}
 		return null;
 	}
 

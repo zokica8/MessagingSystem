@@ -54,6 +54,8 @@ public class MessagingController extends HttpServlet {
 		commands.put(CommandsUtil.LIKE, JspFactory.getCommands(CommandsUtil.LIKE));
 		commands.put(CommandsUtil.UPLOAD_PIC, JspFactory.getCommands(CommandsUtil.UPLOAD_PIC));
 		commands.put(CommandsUtil.PIC_UPLOADED, JspFactory.getCommands(CommandsUtil.PIC_UPLOADED));
+		commands.put(CommandsUtil.COMMENT, JspFactory.getCommands(CommandsUtil.COMMENT));
+		commands.put(CommandsUtil.COMMENT_INSERTED, JspFactory.getCommands(CommandsUtil.COMMENT_INSERTED));
 	}
 
 	/**
