@@ -17,7 +17,7 @@
  </context-param>
  <context-param>
  	<param-name>moveDir</param-name>
- 	<param-value>C:\\Users\\zokiv\\git\\repository\\MessagingSystem\\MessagingSystem\\WebContent\\userImages</param-value>
+ 	<param-value>C:\Users\zokiv\git\repository\MessagingSystem\MessagingSystem\WebContent\userImages</param-value>
  </context-param>
  <servlet>
  	<servlet-name>AccessViewStatusMessages</servlet-name>
