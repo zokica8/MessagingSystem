@@ -87,32 +87,6 @@ public class LikesService extends Service {
 		return likes;
 	}
 	
-	public PostsSent getLikes(int post_id) throws SQLException {
-		PostsSent sent = new PostsSent();
-		
-		String sql = "select p.post_ID, u.username, p.content, count(l.user_ID) as Likes, "
-				+ "p.timeOfMessage from post p "
-				+ "left join likes l on l.post_ID = p.post_ID "
-				+ "join user u on u.user_ID = p.user_ID "
-				+ "where p.post_ID = ? " 
-				+ "group by p.post_ID;";
-		
-		try (PreparedStatement pstmt = connect.returnConnection().prepareStatement(sql)) {
-			pstmt.setInt(1, post_id);
-			pstmt.execute();
-			try (ResultSet rs = pstmt.getResultSet()) {
-				while (rs.next()) {
-					sent.setPost_ID(rs.getInt(1));
-					sent.setUsername(rs.getString(2));
-					sent.setContent(rs.getString(3));
-					sent.setLikesCount(rs.getInt(4));
-					sent.setTimeOfMessage(rs.getTimestamp(5).toLocalDateTime());
-				}
-			}
-		}
-		return sent;
-	}
-	
 	public List<PostsSent> getLikesPerPerson(int post_id) throws SQLException {
 		List<PostsSent> likes = new ArrayList<>();
 		
